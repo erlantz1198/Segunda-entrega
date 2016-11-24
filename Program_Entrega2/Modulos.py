@@ -55,6 +55,7 @@ def Leer():
 
 		except ValueError:
 			print("### ERROR ### La dirección introducida no es correcta.")
+			
 	Lista_cuerpos = []
 	palabra_actual = ""
 	for c in fichero:
@@ -64,11 +65,28 @@ def Leer():
 				palabra_actual = ""
 				if etiqueta == "nombre" or etiqueta == "Nombre":
 					nombre = valor
-
+				if etiqueta== "masa" or etiqueta == "Masa":
+					masa = valor
+				if etiqueta== "Px":
+					Px = valor
+				if etiqueta== "Py":
+					Py = valor
+				if etiqueta== "imagen" or etiqueta == "Imagen":
+					imagen = valor
+				if etiqueta== "fjo" or etiqueta == "Fijo":
+					fijo = valor
+				if etiqueta== "Vx":
+					velocidad_X = valor
+				if etiqueta== "Vy":
+					velocidad_Y = valor
 
 			elif c ==":":
 				etiqueta = palabra_actual
 				palabra_actual = ""s
+
+			elif c == " ":
+				pass
+
 			else:
 				palabra_actual += c
 			
@@ -78,10 +96,6 @@ def Leer():
 			Lista_cuerpos.append(cuerpo_actual)
 
 			
-
-
-
-
 
 class Cuerpo:
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
