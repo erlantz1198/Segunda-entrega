@@ -99,13 +99,13 @@ def Leer():
 		else:
 			cuerpo_actual = cuerpo(nombre, masa, Px, Py, imagen, fijo, velocidad_X, velocidad_Y)
 			Lista_cuerpos.append(cuerpo_actual)
-
 			
+	return Lista_cuerpos	
 
 class Cuerpo:
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
 		self. nombre = nom
-		self.masa = masa
+		self.masa = mas
 		self.Px = x
 		self.Py = y
 		self.imagen = img

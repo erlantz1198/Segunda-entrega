@@ -1,0 +1,1 @@
+Nombre: Luna, Masa:45453kg, x: 3, y: 2, imagen: c:\... , fijo: si, vx: 213, vy:324
