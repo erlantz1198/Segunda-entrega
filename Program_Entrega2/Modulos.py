@@ -48,14 +48,19 @@ def Menu_Opciones(lista_opciones):
 def Leer():
 	dato_valido = False
 	while not dato_valido:
+		
 		try:
 			direccion = input("Introduce la dirección del fichero:\n")
-			fichero = open(direccion)
+			
 			dato_valido = True
 
-		except ValueError:
+		except FileNotFoundError:
 			print("### ERROR ### La dirección introducida no es correcta.")
-			
+		
+		except PermissionError:
+			print("### ERROR ### No tienes permiso para abrir este fichero.")
+
+	fichero = open(direccion)
 	Lista_cuerpos = []
 	palabra_actual = ""
 	for c in fichero:
@@ -82,7 +87,7 @@ def Leer():
 
 			elif c ==":":
 				etiqueta = palabra_actual
-				palabra_actual = ""s
+				palabra_actual = ""
 
 			elif c == " ":
 				pass
