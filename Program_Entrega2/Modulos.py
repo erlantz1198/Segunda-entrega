@@ -78,7 +78,7 @@ def Leer():
 					Py = valor
 				if etiqueta== "imagen" or etiqueta == "Imagen":
 					imagen = valor
-				if etiqueta== "fjo" or etiqueta == "Fijo":
+				if etiqueta== "fijo" or etiqueta == "Fijo":
 					fijo = valor
 				if etiqueta== "Vx":
 					velocidad_X = valor
