@@ -1,4 +1,4 @@
-
+#modulo de opciones de menu
 def opciones_disponibles():
 	opciones = []
 	opciones.append("\n----------------------------\n   OPCIONES DISPONIBLES: \n----------------------------")
