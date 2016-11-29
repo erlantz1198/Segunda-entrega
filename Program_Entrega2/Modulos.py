@@ -1,5 +1,5 @@
 #Modulos para la segunda parte del proyecto de programación
-
+import opciones_menu
 class Cuerpo:
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
 		self.nombre = nom
@@ -18,7 +18,7 @@ def leer(Cuerpo):
 		
 		try:
 			direccion = input("Introduce la dirección del fichero:\n")
-			fichero = open(direccion) #gkhgjkg
+			fichero = open(direccion) 
 			dato_valido = True
 
 		except FileNotFoundError:
@@ -63,7 +63,39 @@ def leer(Cuerpo):
 			
 
 		else:
-			cuerpo_actual =Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
+			cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
 			lista_cuerpos.append(cuerpo_actual)
 			
 	return lista_cuerpos	
+
+
+def opcion_final(opcion_elegida):
+
+	salir_menu = False
+
+	while not salir_menu:
+
+
+
+		if opcion_elegida == 1:
+			dato = leer(Cuerpo)
+			salir_menu = True
+
+			
+		elif opcion_elegida == 2:
+			salir_menu = True
+
+		elif opcion_elegida == 3:
+			salir_menu = True
+		elif opcion_elegida == 4:
+			salir_menu = True
+		elif opcion_elegida == 5:
+			salir_menu = True
+		elif opcion_elegida == 6:
+			
+			salir_menu = True
+			
+		elif opcion_elegida == "q" or opcion_elegida == "Q":
+
+			salir_menu = True
+			return True

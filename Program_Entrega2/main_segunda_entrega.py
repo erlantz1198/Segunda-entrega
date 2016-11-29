@@ -5,14 +5,15 @@ def main():
 
 	print("WELCOME")
 
-	lista_opciones = opciones_menu.opciones_disponibles()
+	finish = False
+	while not finish:
 
-	opcion_elegida = opciones_menu.menu_opciones(lista_opciones)
+		lista_opciones = opciones_menu.opciones_disponibles()
 
-	if opcion_elegida == 1:
-		dato = modulos.leer(modulos.Cuerpo)
-
-
+		opcion_elegida = opciones_menu.menu_opciones(lista_opciones)
+		
+		finish = modulos.opcion_final(opcion_elegida)
+		
 
 
 

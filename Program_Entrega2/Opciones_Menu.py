@@ -20,7 +20,7 @@ def menu_opciones(lista_opciones):
 		for e in lista_opciones:
 			print(e)
 
-		print("\n\tQ - salir")
+		print("\n\tQ/q - salir")
 		print("--------------------------------------")
 		respuesta = input(" Selecciona una tarea a realizar[1-%d]: " %(len(lista_opciones)-1))
 		print("--------------------------------------")
