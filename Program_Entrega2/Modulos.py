@@ -40,9 +40,9 @@ def leer(Cuerpo):
 						nombre = valor
 					if etiqueta == "masa" or etiqueta == "Masa":
 						masa = valor
-					if etiqueta == "vx":
+					if etiqueta == "x":
 						px = valor
-					if etiqueta == "vy":
+					if etiqueta == "y":
 						py = valor
 					if etiqueta == "imagen" or etiqueta == "Imagen":
 						imagen = valor
@@ -78,6 +78,7 @@ def opcion_final(opcion_elegida):
 
 		if opcion_elegida == 1:
 			dato = leer(Cuerpo)
+			print(Cuerpo.nombre) 	
 			salir_menu = True
 
 			
