@@ -35,7 +35,7 @@ def Menu_Opciones(lista_opciones):
 			else:
 				print("\n### ERROR ### Seleccione una opción de la lista o introduzca \"Q\" para sarlir.\n")
 
-		except:
+		except ValueError:
 			if respuesta == "q" or respuesta == "Q":
 				salir = True
 
@@ -104,7 +104,7 @@ def Leer():
 
 class Cuerpo:
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
-		self. nombre = nom
+		self.nombre = nom
 		self.masa = mas
 		self.Px = x
 		self.Py = y
