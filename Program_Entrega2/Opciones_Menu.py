@@ -1,5 +1,5 @@
 
-def Opciones_Disponibles():
+def opciones_disponibles():
 	opciones = []
 	opciones.append("\n----------------------------\n   OPCIONES DISPONIBLES: \n----------------------------")
 	opciones.append("\t1. LEER FICHERO")
@@ -13,7 +13,7 @@ def Opciones_Disponibles():
 
 
 
-def Menu_Opciones(lista_opciones):
+def menu_opciones(lista_opciones):
 	salir = False
 	while not salir:
 	
@@ -33,7 +33,7 @@ def Menu_Opciones(lista_opciones):
 			else:
 				print("\n### ERROR ### Seleccione una opción de la lista o introduzca \"Q\" para sarlir.\n")
 
-		except:
+		except ValueError:
 			if respuesta == "q" or respuesta == "Q":
 				salir = True
 

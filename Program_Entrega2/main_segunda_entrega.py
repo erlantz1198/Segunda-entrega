@@ -1,16 +1,16 @@
-import Modulos
-import Opciones_Menu
+import modulos
+import opciones_menu
 
 def main():
 
 	print("WELCOME")
 
-	lista_opciones = Opciones_Menu.Opciones_Disponibles()
+	lista_opciones = opciones_menu.opciones_disponibles()
 
-	opcion_elegida = Opciones_Menu.Menu_Opciones(lista_opciones)
+	opcion_elegida = opciones_menu.menu_opciones(lista_opciones)
 
 	if opcion_elegida == 1:
-		dato = Modulos.Leer(Modulos.Cuerpo())
+		dato = modulos.leer(modulos.Cuerpo)
 
 
 
