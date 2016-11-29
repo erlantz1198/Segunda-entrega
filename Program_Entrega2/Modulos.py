@@ -18,7 +18,7 @@ def leer(Cuerpo):
 		
 		try:
 			direccion = input("Introduce la dirección del fichero:\n")
-			fichero = open(direccion)
+			fichero = open(direccion) #gkhgjkg
 			dato_valido = True
 
 		except FileNotFoundError:
