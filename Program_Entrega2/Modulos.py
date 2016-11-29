@@ -29,42 +29,43 @@ def leer(Cuerpo):
 
 	lista_cuerpos = []
 	palabra_actual = ""
-	for c in fichero:
-		if c != "\n":
-			if c == ",":
-				valor = palabra_actual
-				palabra_actual = ""
-				if etiqueta == "nombre" or etiqueta == "Nombre":
-					nombre = valor
-				if etiqueta == "masa" or etiqueta == "Masa":
-					masa = valor
-				if etiqueta == "vx":
-					px = valor
-				if etiqueta == "vy":
-					py = valor
-				if etiqueta == "imagen" or etiqueta == "Imagen":
-					imagen = valor
-				if etiqueta == "fijo" or etiqueta == "Fijo":
-					fijo = valor
-				if etiqueta == "vx":
-					velocidad_x = valor
-				if etiqueta == "vy":
-					velocidad_y = valor
+	for linea in fichero:
+		for c in linea:
+			if c != "\n":
 
-			elif c ==":":
-				etiqueta = palabra_actual
-				palabra_actual = ""
+				if c == ",":
+					valor = palabra_actual
+					palabra_actual = ""
+					if etiqueta == "nombre" or etiqueta == "Nombre":
+						nombre = valor
+					if etiqueta == "masa" or etiqueta == "Masa":
+						masa = valor
+					if etiqueta == "vx":
+						px = valor
+					if etiqueta == "vy":
+						py = valor
+					if etiqueta == "imagen" or etiqueta == "Imagen":
+						imagen = valor
+					if etiqueta == "fijo" or etiqueta == "Fijo":
+						fijo = valor
+					if etiqueta == "vx":
+						velocidad_x = valor
+					if etiqueta == "vy":
+						velocidad_y = valor
 
-			elif c == " ":
-				pass
+				elif c ==":":
+					etiqueta = palabra_actual
+					palabra_actual = ""
 
+				elif c == " ":
+					pass
+
+				else:
+					palabra_actual += c
+				
 			else:
-				palabra_actual += c
-			
-
-		else:
-			cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
-			lista_cuerpos.append(cuerpo_actual)
+				cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
+				lista_cuerpos.append(cuerpo_actual)
 			
 	return lista_cuerpos	
 
@@ -74,8 +75,6 @@ def opcion_final(opcion_elegida):
 	salir_menu = False
 
 	while not salir_menu:
-
-
 
 		if opcion_elegida == 1:
 			dato = leer(Cuerpo)
