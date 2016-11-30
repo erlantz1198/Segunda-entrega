@@ -1,3 +1,2 @@
 Nombre: Luna, Masa: 45453kg, x: 3, y: 2, imagen: c\... , fijo: no, vx: 213, vy: 324,
 Nombre: Sol, Masa: 1kg, x: 0, y: 0, imagen: d\... , fijo: si, vx: 0, vy: 0,
-

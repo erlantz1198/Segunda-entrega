@@ -16,8 +16,7 @@ class Cuerpo:
 
 	def imprimir(self):
 
-		print(self.nombre,self.masa, self.px, self.py, self.imagen, self.fijo, self.velocidad_x, self.velocidad_y)
-
+		print("Nombre : %s , Masa: %s , Posición X: %s , Posición Y: %s , Imagen: %s , Cuerpo Fijo: %s , Velocidad X: %s , Velocidad Y: %s " %(self.nombre, self.masa, self.px, self.py, self.imagen, self.fijo, self.velocidad_x, self.velocidad_y))				
 
 def leer(Cuerpo):
 	
@@ -65,6 +64,7 @@ def leer(Cuerpo):
 			
 		cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
 		lista_cuerpos.append(cuerpo_actual)
+		palabra_actual = ""
 			
 	return lista_cuerpos	
 
@@ -90,13 +90,12 @@ def robusta_fichero():
 def opcion_final(opcion_elegida):
 
 	salir_menu = False
-
+	fichero_cargado = False
 	while not salir_menu:
 
 		
 		if opcion_elegida == 1:
 			lista_cuerpos = leer(Cuerpo)
-			
 			for a in lista_cuerpos:
 				a.imprimir()
  
