@@ -1,7 +1,8 @@
-#entradas robustisimas
+#Modulo de entradas robustas.
 
 def entrada_cuerpos():
 	salir = False
+	
 	while not salir:
 		try:
 
