@@ -21,7 +21,30 @@ class Cuerpo:
 def leer(Cuerpo):
 	
 	fichero = robusta_fichero()
+	lista_cuerpos = cargar_cuerpos(fichero, Cuerpo)
+	return lista_cuerpos
 
+
+def robusta_fichero():
+
+	dato_valido = False
+	
+	while not dato_valido:
+		
+		try:
+			direccion = input("Introduce la dirección del fichero:\n")
+			fichero = open(direccion) 
+			dato_valido = True
+
+		except FileNotFoundError:
+			print("### ERROR ### La dirección introducida no es correcta.")
+		
+		except PermissionError:
+			print("### ERROR ### No tienes permiso para abrir este fichero.")
+
+	return fichero
+
+def cargar_cuerpos(fichero,Cuerpo):
 
 	lista_cuerpos = []
 	palabra_actual = ""
@@ -67,61 +90,5 @@ def leer(Cuerpo):
 		palabra_actual = ""
 			
 	return lista_cuerpos	
-
-def robusta_fichero():
-
-	dato_valido = False
-	
-	while not dato_valido:
-		
-		try:
-			direccion = input("Introduce la dirección del fichero:\n")
-			fichero = open(direccion) 
-			dato_valido = True
-
-		except FileNotFoundError:
-			print("### ERROR ### La dirección introducida no es correcta.")
-		
-		except PermissionError:
-			print("### ERROR ### No tienes permiso para abrir este fichero.")
-
-	return fichero
-
-def opcion_final(opcion_elegida):
-
-	salir_menu = False
-	fichero_cargado = False
-	while not salir_menu:
-
-		
-		if opcion_elegida == 1:
-			lista_cuerpos = leer(Cuerpo)
-			for a in lista_cuerpos:
-				a.imprimir()
- 
-			salir_menu = True
-
-			
-		elif opcion_elegida == 2:
-			
-			for a in lista_cuerpos:
-				a.imprimir()
-			
-			salir_menu = True
-
-		elif opcion_elegida == 3:
-			salir_menu = True
-		elif opcion_elegida == 4:
-			salir_menu = True
-		elif opcion_elegida == 5:
-			salir_menu = True
-		elif opcion_elegida == 6:
-			
-			salir_menu = True
-			
-		elif opcion_elegida == "q" or opcion_elegida == "Q":
-
-			salir_menu = True
-			return True
 
 		

@@ -1,4 +1,6 @@
 #modulo de opciones de menu
+import modulos
+
 def opciones_disponibles():
 	opciones = []
 	opciones.append("\n----------------------------\n   OPCIONES DISPONIBLES: \n----------------------------")
@@ -42,3 +44,49 @@ def menu_opciones(lista_opciones):
 				print("\n### ERROR ### Seleccione una opción de la lista o introduzca \"Q\" para sarlir.\n")
 
 	return respuesta
+
+
+def opcion_final(opcion_elegida, fichero_cargado):
+
+	salir_menu = False
+
+	
+	while not salir_menu:
+
+		if not fichero_cargado:
+			
+			if opcion_elegida == 1:
+				
+				lista_cuerpos = modulos.leer(modulos.Cuerpo)
+				
+				for a in lista_cuerpos:
+					a.imprimir()
+
+				salir_menu = True
+
+		else:
+
+			if opcion_elegida == 2:
+				
+				for a in lista_cuerpos:
+				
+					if fichero_cargado:
+						a.imprimir()
+				else:
+					print("Selecciona antes un fichero")
+				salir_menu = True
+
+			elif opcion_elegida == 3:
+				salir_menu = True
+			elif opcion_elegida == 4:
+				salir_menu = True
+			elif opcion_elegida == 5:
+				salir_menu = True
+			elif opcion_elegida == 6:
+				
+				salir_menu = True
+				
+			elif opcion_elegida == "q" or opcion_elegida == "Q":
+
+				salir_menu = True
+				return True
