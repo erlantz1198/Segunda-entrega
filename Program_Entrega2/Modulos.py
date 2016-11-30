@@ -1,7 +1,10 @@
 #Modulos para la segunda parte del proyecto de programación
 import opciones_menu
+
 class Cuerpo:
+	
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
+		
 		self.nombre = nom
 		self.masa = mas
 		self.px = x
@@ -11,9 +14,64 @@ class Cuerpo:
 		self.velocidad_x = vx
 		self.velocidad_y = vy
 
+	def imprimir(self):
+
+		print(self.nombre,self.masa, self.px, self.py, self.imagen, self.fijo, self.velocidad_x, self.velocidad_y)
+
 
 def leer(Cuerpo):
+	
+	fichero = robusta_fichero()
+
+
+	lista_cuerpos = []
+	palabra_actual = ""
+	
+	for linea in fichero:
+		
+		for c in linea:
+			
+			if c == ",":
+				valor = palabra_actual
+				palabra_actual = ""
+
+				if etiqueta == "nombre" or etiqueta == "Nombre":
+					nombre = valor
+				if etiqueta == "masa" or etiqueta == "Masa":
+					masa = valor
+				if etiqueta == "x":
+					px = valor
+				if etiqueta == "y":
+					py = valor
+				if etiqueta == "imagen" or etiqueta == "Imagen":
+					imagen = valor
+				if etiqueta == "fijo" or etiqueta == "Fijo":
+					fijo = valor
+				if etiqueta == "vx":
+					velocidad_x = valor
+				if etiqueta == "vy":
+					velocidad_y = valor
+
+			elif c ==":":
+				etiqueta = palabra_actual
+				palabra_actual = ""
+
+			elif c == " ":
+				pass
+
+			else:
+				palabra_actual += c
+			
+			
+		cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
+		lista_cuerpos.append(cuerpo_actual)
+			
+	return lista_cuerpos	
+
+def robusta_fichero():
+
 	dato_valido = False
+	
 	while not dato_valido:
 		
 		try:
@@ -27,48 +85,7 @@ def leer(Cuerpo):
 		except PermissionError:
 			print("### ERROR ### No tienes permiso para abrir este fichero.")
 
-	lista_cuerpos = []
-	palabra_actual = ""
-	for linea in fichero:
-		for c in linea:
-			if c != "\n":
-
-				if c == ",":
-					valor = palabra_actual
-					palabra_actual = ""
-					if etiqueta == "nombre" or etiqueta == "Nombre":
-						nombre = valor
-					if etiqueta == "masa" or etiqueta == "Masa":
-						masa = valor
-					if etiqueta == "x":
-						px = valor
-					if etiqueta == "y":
-						py = valor
-					if etiqueta == "imagen" or etiqueta == "Imagen":
-						imagen = valor
-					if etiqueta == "fijo" or etiqueta == "Fijo":
-						fijo = valor
-					if etiqueta == "vx":
-						velocidad_x = valor
-					if etiqueta == "vy":
-						velocidad_y = valor
-
-				elif c ==":":
-					etiqueta = palabra_actual
-					palabra_actual = ""
-
-				elif c == " ":
-					pass
-
-				else:
-					palabra_actual += c
-				
-			else:
-				cuerpo_actual = Cuerpo(nombre, masa, px, py, imagen, fijo, velocidad_x, velocidad_y)
-				lista_cuerpos.append(cuerpo_actual)
-			
-	return lista_cuerpos	
-
+	return fichero
 
 def opcion_final(opcion_elegida):
 
@@ -76,13 +93,21 @@ def opcion_final(opcion_elegida):
 
 	while not salir_menu:
 
+		
 		if opcion_elegida == 1:
-			dato = leer(Cuerpo)
-			print(Cuerpo.nombre) 	
+			lista_cuerpos = leer(Cuerpo)
+			
+			for a in lista_cuerpos:
+				a.imprimir()
+ 
 			salir_menu = True
 
 			
 		elif opcion_elegida == 2:
+			
+			for a in lista_cuerpos:
+				a.imprimir()
+			
 			salir_menu = True
 
 		elif opcion_elegida == 3:
@@ -99,3 +124,5 @@ def opcion_final(opcion_elegida):
 
 			salir_menu = True
 			return True
+
+		
