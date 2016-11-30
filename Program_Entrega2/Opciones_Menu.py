@@ -46,47 +46,45 @@ def menu_opciones(lista_opciones):
 	return respuesta
 
 
-def opcion_final(opcion_elegida, fichero_cargado):
+def opcion_final(opcion_elegida, lista_cuerpos):
 
 	salir_menu = False
 
-	
 	while not salir_menu:
 
-		if not fichero_cargado:
+		
+		if opcion_elegida == 1:
 			
-			if opcion_elegida == 1:
+			lista_cuerpos = modulos.leer(modulos.Cuerpo)
 				
-				lista_cuerpos = modulos.leer(modulos.Cuerpo)
-				
-				for a in lista_cuerpos:
-					a.imprimir()
+			salir_menu = True
+			return lista_cuerpos
+			
+			
+		elif opcion_elegida == 2:
+			
+			for a in lista_cuerpos:
+				a.imprimir()
+			else:
+				print("Selecciona antes un fichero")
+			salir_menu = True
 
-				salir_menu = True
+		elif opcion_elegida == 3:
+			lista_cuerpos = modulos.agregar_cuerpos(lista_cuerpos, modulos.Cuerpo)
+			salir_menu = True
+			return lista_cuerpos
+			
+		elif opcion_elegida == 4:
+			
+			salir_menu = True
+		elif opcion_elegida == 5:
+			
+			salir_menu = True
+		elif opcion_elegida == 6:
+			
+			salir_menu = True
+			
+		elif opcion_elegida == "q" or opcion_elegida == "Q":
 
-		else:
-
-			if opcion_elegida == 2:
-				
-				for a in lista_cuerpos:
-				
-					if fichero_cargado:
-						a.imprimir()
-				else:
-					print("Selecciona antes un fichero")
-				salir_menu = True
-
-			elif opcion_elegida == 3:
-				salir_menu = True
-			elif opcion_elegida == 4:
-				salir_menu = True
-			elif opcion_elegida == 5:
-				salir_menu = True
-			elif opcion_elegida == 6:
-				
-				salir_menu = True
-				
-			elif opcion_elegida == "q" or opcion_elegida == "Q":
-
-				salir_menu = True
-				return True
+			salir_menu = True
+			return True

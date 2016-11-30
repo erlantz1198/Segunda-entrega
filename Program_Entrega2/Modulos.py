@@ -1,6 +1,6 @@
 #Modulos para la segunda parte del proyecto de programación
 import opciones_menu
-
+import robusta_entrega
 class Cuerpo:
 	
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
@@ -53,7 +53,7 @@ def cargar_cuerpos(fichero,Cuerpo):
 		
 		for c in linea:
 			
-			if c == ",":
+			if c == "," or c == ".":
 				valor = palabra_actual
 				palabra_actual = ""
 
@@ -80,6 +80,7 @@ def cargar_cuerpos(fichero,Cuerpo):
 
 			elif c == " ":
 				pass
+			
 
 			else:
 				palabra_actual += c
@@ -91,4 +92,41 @@ def cargar_cuerpos(fichero,Cuerpo):
 			
 	return lista_cuerpos	
 
+def agregar_cuerpos(lista_cuerpos, Cuerpo):
+	mas_cuerpos = True
+	while mas_cuerpos:
+		num_cuerpos = robusta_entrega.entrada_cuerpos()
+		print("")
 		
+		for n in range(num_cuerpos):
+			nombre = input("Introduce el nombre del cuerpo: ")
+			masa = input("Introduce la masa: ")
+			px = input("Introduce la posición x: ")
+			py = input("Introduce la posición y: ")
+			imagen = input("Introduce la ruta de la imagen: ")
+			fijo = input("¿El cuerpo es fijo? (si/no): ")
+			vx = input("Introduce la velocidad x: ")
+			vy = input("Introduce la velocidad y: ")
+
+			cuerpo_nuevo = Cuerpo(nombre, masa, px, py, imagen, fijo, vx, vy)
+			lista_cuerpos.append(cuerpo_nuevo)
+		
+		respuesta = input("\n\n¿Deseas añadir más cuerpos? (si/no): ")
+
+		respuesta= respuesta.lower()
+
+		if respuesta == "no":
+			mas_cuerpos = False
+
+	return lista_cuerpos
+
+
+
+
+
+
+
+
+
+
+

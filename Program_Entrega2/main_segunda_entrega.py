@@ -13,8 +13,7 @@ def main():
 		opcion_elegida = opciones_menu.menu_opciones(lista_opciones)
 		
 		accion = opciones_menu.opcion_final(opcion_elegida, accion)
-		
-
+				
 		if accion == True:
 
 			finish = accion
