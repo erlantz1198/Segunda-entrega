@@ -14,6 +14,7 @@ def opciones_disponibles():
 
 
 def menu_opciones(lista_opciones):
+	
 	salir = False
 	while not salir:
 	
