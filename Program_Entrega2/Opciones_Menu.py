@@ -56,7 +56,7 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		if opcion_elegida == 1:
 			
 			lista_cuerpos = modulos.leer(modulos.Cuerpo)
-				
+			print("Fichero cargado con éxito")
 			salir_menu = True
 			return lista_cuerpos
 			
@@ -73,7 +73,7 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 			lista_cuerpos = modulos.agregar_cuerpos(lista_cuerpos, modulos.Cuerpo)
 			salir_menu = True
 			return lista_cuerpos
-			
+
 		elif opcion_elegida == 4:
 			
 			salir_menu = True

@@ -100,13 +100,13 @@ def agregar_cuerpos(lista_cuerpos, Cuerpo):
 		
 		for n in range(num_cuerpos):
 			nombre = input("Introduce el nombre del cuerpo: ")
-			masa = input("Introduce la masa: ")
-			px = input("Introduce la posición x: ")
-			py = input("Introduce la posición y: ")
+			masa = robusta_entrega.entrada_enteros("masa")
+			px = robusta_entrega.entrada_enteros("posición x")
+			py = robusta_entrega.entrada_enteros("posición y")
 			imagen = input("Introduce la ruta de la imagen: ")
-			fijo = input("¿El cuerpo es fijo? (si/no): ")
-			vx = input("Introduce la velocidad x: ")
-			vy = input("Introduce la velocidad y: ")
+			fijo = robusta_entrega.entrada_sino()
+			vx = robusta_entrega.entrada_enteros("velocidad x")
+			vy = robusta_entrega.entrada_enteros("velocidad y")
 
 			cuerpo_nuevo = Cuerpo(nombre, masa, px, py, imagen, fijo, vx, vy)
 			lista_cuerpos.append(cuerpo_nuevo)
