@@ -41,7 +41,7 @@ def entrada_sino():
 			salir = True
 
 		else:
-			print("Se esperaba un 'sí' o un 'no'.")
+			print("Se esperaba un 'si' o un 'no'.")
 
 	return respuesta
 
@@ -63,6 +63,14 @@ def robusta_fichero():
 			print("### ERROR ### No tienes permiso para abrir este fichero.")
 
 	return fichero
+
+def norepetirnombre(lista_cuerpos, nombre):
+
+	for a in lista_cuerpos:
+
+		if nombre == a.nombre:
+
+			print("Este nombre existe ya, por favor elige otro.")
 
 
 

@@ -55,7 +55,7 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		
 		if opcion_elegida == 1:
 			
-			lista_cuerpos = modulos.leer(modulos.Cuerpo)
+			lista_cuerpos = modulos.leer(modulos.Cuerpo,lista_cuerpos)
 			print("Fichero cargado con éxito")
 			salir_menu = True
 			return lista_cuerpos
@@ -67,7 +67,9 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 				a.imprimir()
 			else:
 				print("Selecciona antes un fichero")
+
 			salir_menu = True
+			return lista_cuerpos
 
 		elif opcion_elegida == 3:
 			lista_cuerpos = modulos.agregar_cuerpos(lista_cuerpos, modulos.Cuerpo)
@@ -75,8 +77,9 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 			return lista_cuerpos
 
 		elif opcion_elegida == 4:
-			
+			lista_cuerpos = modulos.eliminar_cuerpos(lista_cuerpos, modulos.Cuerpo)
 			salir_menu = True
+			return lista_cuerpos		
 		elif opcion_elegida == 5:
 			
 			salir_menu = True
