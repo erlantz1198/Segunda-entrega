@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #modulo de opciones de menu
 import modulos
 
