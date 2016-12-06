@@ -23,34 +23,18 @@ class Cuerpo:
 		print("Nombre : %s , Masa: %s , Posición X: %s , Posición Y: %s , Imagen: %s , Cuerpo Fijo: %s , Velocidad X: %s , Velocidad Y: %s " %(self.nombre, self.masa, self.px, self.py, self.imagen, self.fijo, self.velocidad_x, self.velocidad_y))				
 
 	def imprimir_nombre(self):
+
 		print(str(self.nombre))
 
 
-def leer(Cuerpo):
-	
-	fichero = robusta_fichero()
-	lista_cuerpos = cargar_cuerpos(fichero, Cuerpo)
+def leer(Cuerpo,lista_cuerpos):
+
+	fichero = robusta_entrega.robusta_fichero()
+	lista_cuerpos = cargar_cuerpos(fichero, Cuerpo,lista_cuerpos)
 	return lista_cuerpos
 
 
-def robusta_fichero():
 
-	dato_valido = False
-	
-	while not dato_valido:
-		
-		try:
-			direccion = input("Introduce la dirección del fichero:\n")
-			fichero = open(direccion) 
-			dato_valido = True
-
-		except FileNotFoundError:
-			print("### ERROR ### La dirección introducida no es correcta.")
-		
-		except PermissionError:
-			print("### ERROR ### No tienes permiso para abrir este fichero.")
-
-	return fichero
 
 
 def cargar_cuerpos(fichero,Cuerpo):
@@ -110,6 +94,7 @@ def agregar_cuerpos(lista_cuerpos, Cuerpo):
 		
 		for n in range(num_cuerpos):
 			nombre = input("Introduce el nombre del cuerpo: ")
+			nombre = robusta_entrega.norepetirnombre(lista_cuerpos,nombre)
 			masa = robusta_entrega.entrada_enteros("masa")
 			px = robusta_entrega.entrada_enteros("posición x")
 			py = robusta_entrega.entrada_enteros("posición y")
@@ -192,6 +177,13 @@ def guardar(lista_cuerpos):
 	print("\n\t# Fichero guardado con exito #")
 	fichero.close()
 
+def eliminar_cuerpos(lista_cuerpos, Cuerpo):
+
+	for a in lista_cuerpos:
+
+		a.imprimir_nombre()
+
+	return lista_cuerpos
 
 
 

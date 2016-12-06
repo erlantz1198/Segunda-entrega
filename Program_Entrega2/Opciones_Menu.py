@@ -56,8 +56,10 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		
 		if opcion_elegida == 1:
 			
+
 			lista_cuerpos = modulos.leer(modulos.Cuerpo)
 			print("\n\t# Fichero cargado con éxito #")
+
 			salir_menu = True
 			return lista_cuerpos
 			
@@ -66,9 +68,11 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 			error = False
 			for a in lista_cuerpos:
 				a.imprimir()
+				
 				error = True
 			if not error:
 				print("# Es necesario seleccionar un fichero. Selecciona la opción 1 para cargar un fichero. #")
+
 			salir_menu = True
 			return lista_cuerpos
 
@@ -81,6 +85,7 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 			modulos.eliminar_cuerpo(lista_cuerpos, modulos.Cuerpo)
 
 			salir_menu = True
+			return lista_cuerpos		
 		elif opcion_elegida == 5:
 			
 			salir_menu = True
