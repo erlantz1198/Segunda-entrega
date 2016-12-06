@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Modulos para la segunda parte del proyecto de programación
 import opciones_menu
 import robusta_entrega

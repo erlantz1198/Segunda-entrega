@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #modulo de opciones de menu
 import modulos
 
@@ -55,18 +56,22 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		
 		if opcion_elegida == 1:
 			
-			lista_cuerpos = modulos.leer(modulos.Cuerpo,lista_cuerpos)
-			print("Fichero cargado con éxito")
+
+			lista_cuerpos = modulos.leer(modulos.Cuerpo)
+			print("\n\t# Fichero cargado con éxito #")
+
 			salir_menu = True
 			return lista_cuerpos
 			
 			
 		elif opcion_elegida == 2:
-			
+			error = False
 			for a in lista_cuerpos:
 				a.imprimir()
-			else:
-				print("Selecciona antes un fichero")
+				
+				error = True
+			if not error:
+				print("# Es necesario seleccionar un fichero. Selecciona la opción 1 para cargar un fichero. #")
 
 			salir_menu = True
 			return lista_cuerpos

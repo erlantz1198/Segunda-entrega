@@ -1,7 +1,9 @@
-#entradas robustisimas
+# -*- coding: utf-8 -*-
+#Modulo de entradas robustas.
 
 def entrada_cuerpos():
 	salir = False
+	
 	while not salir:
 		try:
 
