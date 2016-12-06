@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 #Modulos para la segunda parte del proyecto de programación
+
 import opciones_menu
 import robusta_entrega
+
+
 class Cuerpo:
 	
 	def __init__(self, nom, mas, x , y, img, fijo, vx, vy):
@@ -18,6 +21,10 @@ class Cuerpo:
 	def imprimir(self):
 
 		print("Nombre : %s , Masa: %s , Posición X: %s , Posición Y: %s , Imagen: %s , Cuerpo Fijo: %s , Velocidad X: %s , Velocidad Y: %s " %(self.nombre, self.masa, self.px, self.py, self.imagen, self.fijo, self.velocidad_x, self.velocidad_y))				
+
+	def imprimir_nombre(self):
+		print(str(self.nombre))
+
 
 def leer(Cuerpo):
 	
@@ -44,6 +51,7 @@ def robusta_fichero():
 			print("### ERROR ### No tienes permiso para abrir este fichero.")
 
 	return fichero
+
 
 def cargar_cuerpos(fichero,Cuerpo):
 
@@ -93,6 +101,7 @@ def cargar_cuerpos(fichero,Cuerpo):
 			
 	return lista_cuerpos	
 
+
 def agregar_cuerpos(lista_cuerpos, Cuerpo):
 	mas_cuerpos = True
 	while mas_cuerpos:
@@ -122,6 +131,66 @@ def agregar_cuerpos(lista_cuerpos, Cuerpo):
 	return lista_cuerpos
 
 
+def eliminar_cuerpo(lista_cuerpos, Cuerpo):
+
+
+	salir = False
+	contador = 1
+
+	print("\n")
+	while not salir:
+
+		for c in lista_cuerpos:
+
+			try:
+				print("\t", end="")
+				print(contador, end="")
+				print(". ", end="")
+
+				c.imprimir_nombre()
+				contador += 1
+
+			except:
+				pass
+	
+			
+		print("\n\tQ/q - salir")
+		print("--------------------------------------")
+		respuesta = input(" Selecciona el cuerpo a eliminar[1-%d]: " %(len(lista_cuerpos)))
+		print("--------------------------------------")
+
+
+		try:
+			respuesta = int(respuesta)
+
+			if respuesta>=1 and (respuesta<=(len(lista_cuerpos)-1)):
+				salir = True
+			else:
+				print("\n### ERROR ### Seleccione un cuerpo de la lista o introduzca \"Q\" para sarlir.\n")
+
+		except ValueError:
+			if respuesta == "q" or respuesta == "Q":
+				salir = True
+
+			else:
+				print("\n### ERROR ### Seleccione un cuerpo de la lista o introduzca \"Q\" para sarlir.\n")
+
+		del lista_cuerpos[1]
+
+
+def guardar(lista_cuerpos):
+
+	fichero = robusta_entrega.fichero_w()
+	datos_salida = ""
+	n = 0
+
+	for e in lista_cuerpos:
+	
+		datos_salida = datos_salida + "Nombre: " + e.nombre +", Masa: " + str(e.masa) + ", x: " + str(e.px) + ", y: " + str(e.py) + ", imagen: " + str(e.imagen) + ", fijo: " + str(e.fijo) + ", vx: " + str(e.velocidad_x) + ", vy: " + str(e.velocidad_y) + ".\n"
+
+	fichero.write(datos_salida)
+	print("\n\t# Fichero guardado con exito #")
+	fichero.close()
 
 
 

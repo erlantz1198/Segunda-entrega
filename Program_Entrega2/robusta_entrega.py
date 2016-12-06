@@ -68,3 +68,27 @@ def robusta_fichero():
 
 
 
+
+def fichero_w():
+
+	dato_valido = False
+	
+	while not dato_valido:
+		
+		try:
+			direccion = input("Introduce la dirección o el destino del fichero:\n")
+			fichero = open(direccion, "w") 
+			dato_valido = True
+
+		except FileNotFoundError:
+			print("### ERROR ### La dirección introducida no es correcta.")
+		
+		except PermissionError:
+			print("### ERROR ### No tienes permiso para abrir este fichero.")
+
+	return fichero
+
+
+
+
+

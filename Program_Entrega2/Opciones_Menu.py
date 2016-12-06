@@ -78,13 +78,16 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 			return lista_cuerpos
 
 		elif opcion_elegida == 4:
-			
+			modulos.eliminar_cuerpo(lista_cuerpos, modulos.Cuerpo)
+
 			salir_menu = True
 		elif opcion_elegida == 5:
 			
 			salir_menu = True
 		elif opcion_elegida == 6:
 			
+			modulos.guardar(lista_cuerpos)
+
 			salir_menu = True
 			
 		elif opcion_elegida == "q" or opcion_elegida == "Q":
