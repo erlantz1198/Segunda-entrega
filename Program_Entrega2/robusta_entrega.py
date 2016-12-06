@@ -12,7 +12,7 @@ def entrada_cuerpos():
 
 		except ValueError:
 
-			print("Se esperaba un numero de cuerpos a añadir.")
+			print("Se esperaba un numero de cuerpos a añadir.\n")
 
 	return respuesta
 
@@ -89,6 +89,17 @@ def fichero_w():
 	return fichero
 
 
+def robusta_modificaciones_int(respuesta):
+	
+	salir = False
+	try:
+		respuesta = int(respuesta)
+		salir = True
+
+	except ValueError:
+		print("Se esperaba un numero válido.")
+
+	return salir
 
 
-
+#def robusta_modificaciones_str(respuesta):

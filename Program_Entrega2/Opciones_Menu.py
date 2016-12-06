@@ -56,10 +56,8 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		
 		if opcion_elegida == 1:
 			
-
 			lista_cuerpos = modulos.leer(modulos.Cuerpo)
 			print("\n\t# Fichero cargado con éxito #")
-
 			salir_menu = True
 			return lista_cuerpos
 			
@@ -67,13 +65,17 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 		elif opcion_elegida == 2:
 			error = False
 			for a in lista_cuerpos:
-				a.imprimir()
-				
-				error = True
-			if not error:
-				print("# Es necesario seleccionar un fichero. Selecciona la opción 1 para cargar un fichero. #")
+				try:
+					a.imprimir()
+					error = True
 
+				except:
+					pass
+
+			if not error:
+				print("# Es necesario seleccionar un fichero o añadir un cuerpo antes. Selecciona la opción 1 para cargar un fichero o la opción 3 para añadir un cuerpo. #")
 			salir_menu = True
+
 			return lista_cuerpos
 
 		elif opcion_elegida == 3:
@@ -83,19 +85,21 @@ def opcion_final(opcion_elegida, lista_cuerpos):
 
 		elif opcion_elegida == 4:
 			modulos.eliminar_cuerpo(lista_cuerpos, modulos.Cuerpo)
+			salir_menu = True
+			return lista_cuerpos
 
-			salir_menu = True
-			return lista_cuerpos		
 		elif opcion_elegida == 5:
-			
+			modulos.seleccionar_modificacion(lista_cuerpos, modulos.Cuerpo)
 			salir_menu = True
+			return lista_cuerpos
+
 		elif opcion_elegida == 6:
 			
 			modulos.guardar(lista_cuerpos)
-
 			salir_menu = True
-			
-		elif opcion_elegida == "q" or opcion_elegida == "Q":
+			return lista_cuerpos
 
+		elif opcion_elegida == "q" or opcion_elegida == "Q":
+			print("\n\t# Hasta pronto #\n ")
 			salir_menu = True
 			return True
