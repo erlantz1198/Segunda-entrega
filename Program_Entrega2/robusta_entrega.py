@@ -90,5 +90,27 @@ def fichero_w():
 
 
 
+def norepetirnombre(lista_cuerpos):
 
+	namefound = False
+	
+	while not namefound:
+		
+		conflicto = False
+		
+		nombre_elegido = input("Introduce el nombre del cuerpo: ")
 
+		for a in lista_cuerpos:
+
+			if nombre_elegido == a.nombre:
+
+				print("ERROR, El nombre %s ya está elegido para otro cuerpo. Por favor, inserta otro nombre. \n"%nombre_elegido)
+				conflicto = True
+		
+		if conflicto:
+			namefound = False
+		
+		else: 
+			namefound = True
+
+	return nombre_elegido
