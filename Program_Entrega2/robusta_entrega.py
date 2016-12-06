@@ -99,7 +99,35 @@ def robusta_modificaciones_int(respuesta):
 	except ValueError:
 		print("Se esperaba un numero válido.")
 
+<<<<<<< HEAD
 	return salir
+=======
+def norepetirnombre(lista_cuerpos):
+>>>>>>> origin/master
 
+	namefound = False
+	
+	while not namefound:
+		
+		conflicto = False
+		
+		nombre_elegido = input("Introduce el nombre del cuerpo: ")
 
+		for a in lista_cuerpos:
+
+			if nombre_elegido == a.nombre:
+
+				print("ERROR, El nombre %s ya está elegido para otro cuerpo. Por favor, inserta otro nombre. \n"%nombre_elegido)
+				conflicto = True
+		
+		if conflicto:
+			namefound = False
+		
+		else: 
+			namefound = True
+
+<<<<<<< HEAD
 #def robusta_modificaciones_str(respuesta):
+=======
+	return nombre_elegido
+>>>>>>> origin/master

@@ -109,7 +109,9 @@ def agregar_cuerpos(lista_cuerpos, Cuerpo):
 		print("")
 		
 		for n in range(num_cuerpos):
-			nombre = input("Introduce el nombre del cuerpo: ")
+
+			nombre = robusta_entrega.norepetirnombre(lista_cuerpos)
+
 			masa = robusta_entrega.entrada_enteros("masa")
 			px = robusta_entrega.entrada_enteros("posición x")
 			py = robusta_entrega.entrada_enteros("posición y")
